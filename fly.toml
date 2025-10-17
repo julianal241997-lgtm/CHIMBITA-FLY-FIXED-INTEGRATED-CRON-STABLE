@@ -1,0 +1,8 @@
+app = "chimbita-fly-fixed"
+primary_region = "scl"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[processes]
+  app = "python scan_bot.py"
