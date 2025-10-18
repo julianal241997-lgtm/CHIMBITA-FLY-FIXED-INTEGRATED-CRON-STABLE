@@ -1,0 +1,17 @@
+# fly.toml (WEB deploy friendly)
+app = "chimbita-fly-web"
+primary_region = "scl"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[processes]
+  app = "python scan_bot.py"
+
+# Dummy service to satisfy the Launch UI; the app doesn't actually serve HTTP.
+[[services]]
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  [[services.ports]]
+    port = 8080
